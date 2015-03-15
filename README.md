@@ -3,7 +3,7 @@
 ## Synopsis
 
 The script builds matching `mod_auth_svn.so` and `mod_dav_svn.so` for
-Mac OS X 10.10.x (Yosemite) and XCode 6.x for use with Apache's httpd. For some reason Apple doesn't
+Mac OS X 10.10 (Yosemite) and Xcode 6 for use with Apache's httpd. For some reason Apple doesn't
 manage anymore to bundle this both files somewhere in their releases, but they are required to set up
 Subversion repository access via http and/or https.
 
@@ -19,8 +19,8 @@ Assuming everything goes well the script creates the files `mod_auth_svn.so` and
 
 ## Requirements
 
-* Mac OS X 10.10 (Yosemite)
-* XCode 6.x (installed via the Mac OS X AppStore)
+* Mac OS X 10.10.x (Yosemite)
+* Xcode 6.x (installed via the Mac OS X App Store)
 
 Note: might work with older releases like Mac OS X 10.9 too (not tested)
 
@@ -32,7 +32,7 @@ The created modules can be used directly with Apache's httpd (as provided by App
 	$ sudo cp mod_dav_svn.so /usr/local/libexec/apache2/
 	$ sudo cp mod_authz_svn.so /usr/local/libexec/apache2/
 	
-A `/etc/apache2/other/subversion.conf` similar to this needs to be created:
+In `/etc/apache2/other/` a `subversion.conf` similar to this needs to be created:
 
 	LoadModule dav_svn_module     /usr/local/libexec/apache2/mod_dav_svn.so
 	LoadModule authz_svn_module   /usr/local/libexec/apache2/mod_authz_svn.so
