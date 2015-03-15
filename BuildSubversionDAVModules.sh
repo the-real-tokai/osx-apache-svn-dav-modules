@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # 
-#  Synopsis: This script builds matching 'mod_auth_svn.so' and 'mod_dav_svn.so' for Mac OS X 10.10.x (Yosemite)
-#            and XCode 6.x for use with Apache's httpd. For some reason Apple doesn't manage anymore to bundle
+#  Synopsis: This script builds matching 'mod_auth_svn.so' and 'mod_dav_svn.so' for Mac OS X 10.10 (Yosemite)
+#            and Xcode 6 for use with Apache's httpd. For some reason Apple doesn't manage anymore to bundle
 #            this both files somewhere in their releases, but they are required to set up Subversion repository
 #            access via http and/or https.
 #
@@ -22,7 +22,7 @@ if [ ! -d "/usr/include" ]; then
 	# Grab "version.revision" and skip ".subrevision"
 	osx_version=`sw_vers -productVersion | sed -n 's/\(^[0-9]\{1,2\}\)\.\([0-9]\{1,2\}\).*$/\1.\2/p'`
 		
-	printf 'Error: "/usr/include" is required to build Apache Subversion. Make sure that XCode is installed. '
+	printf 'Error: "/usr/include" is required to build Apache Subversion. Make sure that Xcode is installed. '
 	printf 'In case the directory is missing anyway then making it a softlink to "'
 	printf '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX'$osx_version'.sdk/usr/include'
 	printf '" will work too.\n'
