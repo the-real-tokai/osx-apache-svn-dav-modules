@@ -15,7 +15,7 @@ Download the [script](https://raw.githubusercontent.com/the-real-tokai/osx-apach
 	$ chmod +x ./BuildSubversionDAVModules.sh
 	$ ./BuildSubversionDAVModules.sh
 
-Assuming everything goes well the script creates the files `mod_auth_svn.so` and `mod_dav_svn.so` in the current directory.
+Assuming everything goes well the script creates the files `mod_authz_svn.so` and `mod_dav_svn.so` in the current directory.
 
 ## Requirements
 
