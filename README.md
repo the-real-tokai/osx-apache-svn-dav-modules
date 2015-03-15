@@ -63,3 +63,6 @@ The main `httpd.conf` needs to be edited too, to make sure required modules, lik
 
 	$ sudo apachectl restart
 	
+## Disclaimer
+
+The script was made for my personal use and shared here in case it might be helpful for other people too. It might or might not work for you and you use it at your own risk.
