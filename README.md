@@ -4,8 +4,8 @@
 
 The script builds matching `mod_auth_svn.so` and `mod_dav_svn.so` for
 Mac OS X 10.10 (Yosemite) and Xcode 6 for use with Apache's httpd. For some reason Apple doesn't
-manage anymore to bundle this both files somewhere in their releases (since Mac OS X 10.8 aka Mountain Lion), but they are required to set up
-Subversion repository access via http and/or https.
+manage it anymore to bundle both modules somewhere in their releases. This is the case since Mac OS X 10.8 aka Mountain Lion. Still
+both modules are required to set up Subversion repository access via http and/or https.
 
 ## Usage of the Script
 
