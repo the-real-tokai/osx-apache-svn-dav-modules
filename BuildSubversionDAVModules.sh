@@ -88,7 +88,7 @@ fi )
 #  Clean up
 #
 mv "subversion-$svnadmin_version/subversion/mod_dav_svn/.libs/mod_dav_svn.so" './mod_dav_svn.so'
-mv "subversion-$svnadmin_version/subversion/mod_authz_svn/.libs/mod_authz_svn.so" './mod_auth_svn.so'
+mv "subversion-$svnadmin_version/subversion/mod_authz_svn/.libs/mod_authz_svn.so" './mod_authz_svn.so'
 
 rm -vrf "subversion-$svnadmin_version"
 rm -vf "subversion-$svnadmin_version.tar"
