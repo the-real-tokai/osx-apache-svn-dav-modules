@@ -62,11 +62,11 @@ tar -xf 'subversion-'$svnadmin_version'.tar'
 	
 	# Fix up the two Apache modules…
 	#
-	# Info: The resulting modules contain references to '/usr/local/lib' and expect various libraries (*.dynlib)
+	# Info: The resulting modules contain references to '/usr/local/lib' and expect various libraries (*.dylib)
 	#       of Subversion to be located there. Since we have those libraries already inside the Xcode.app bundle,
-	#       we simply update the internal links to point those versions (else it would fail when the modules get
-	#       loaded via httpd.) Alternatively a second set of the libraries could be installed to '/usr/local/lib'
-	#       via 'make install', but that's a pointless waste of disk space, IMHO.
+	#       we simply update the internal links to point to those versions (else it would fail when httpd loads
+	#       the modules.) Alternatively a second set of the libraries could be installed to '/usr/local/lib'
+	#       via 'make install', but that is a pointless waste of disk space, IMHO.
 	#
 	
 	echo 'Fixing dynamic library paths in "mod_dav_svn"…'
