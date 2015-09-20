@@ -60,8 +60,19 @@ tar -xvyf 'subversion-'$svnadmin_version'.tar.bz2'
 	#       installations.)
 	#	
 	IFLAGS="-I$SDKPATH/usr/include -I$SDKPATH/usr/include/apr-1 -I$SDKPATH/usr/include/apache2"
-	
+
 	echo 'Configuring Subversion build…'
+
+	# Patch configure script…
+	#
+	# Note: OS X's apxs (as used in the configure script) returns a hard coded "/usr/include/apache2"
+	#       path which usually doesn't exists. Alternatively using "--with-apxs=no" works too though.
+	#
+	mv ./configure ./configure,original
+	APXS_PATH="$SDKPATH/usr/include/apache2"
+	sed 's#\s*APXS_INCLUDE=".*"\s*$#APXS_INCLUDE="'$APXS_PATH'"#' configure,original >configure
+	chmod +x configure
+
 	./configure \
 		--prefix=/Applications/Xcode.app/Contents/Developer/usr \
 		--disable-debug \
@@ -73,9 +84,9 @@ tar -xvyf 'subversion-'$svnadmin_version'.tar.bz2'
 		--without-serf \
 		--with-apr=/usr \
 		--with-apr-util=/usr \
-		--with-apxs=no \
-		CFLAGS="$IFLAGS" CXXFLAGS="$IFLAGS" CPPFLAGS="$IFLAGS" 
-	
+		--with-apxs="/usr/sbin/apxs" \
+		CFLAGS="$IFLAGS" CXXFLAGS="$IFLAGS" CPPFLAGS="$IFLAGS"
+
 	echo 'Making modules…'
 	make mod_dav_svn mod_authz_svn
 
